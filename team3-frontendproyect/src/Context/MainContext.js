@@ -8,7 +8,7 @@ function getInitialState() {
    
     const currentState = localStorage.getItem('state');
     let data = null;
-    console.log(currentState);
+    // console.log(currentState);
    
     if (currentState == null) {
         localStorage.setItem('state', JSON.stringify(defaultState)) 

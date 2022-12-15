@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Youtube from "react-youtube";
 import "./Billboards.css";
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
 function Billboards() {
@@ -70,7 +70,7 @@ function Billboards() {
 	};
 	useEffect(() => {
 		fetchMovies();
-	}, []);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 	return (
 		<div>
 			<h2 className="text-center mt-5 mb-5">Trailer Movies</h2>

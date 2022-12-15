@@ -53,9 +53,9 @@ export default function DarkMode() {
 	}
 
 	return (
-		<div>
+		<>
 			<button className="switch" id="switch" onClick={(e) => handleOnClick(e)}>
 			</button>
-		</div>
+		</>
 	)
 }

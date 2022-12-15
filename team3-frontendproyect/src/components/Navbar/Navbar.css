@@ -4,6 +4,7 @@
     background-color: var(--FondoApp);
     padding: 0px 20px;
     position: sticky;
+    z-index: 9999;
     top: 0 ;
     left: 0;
     right: 0;

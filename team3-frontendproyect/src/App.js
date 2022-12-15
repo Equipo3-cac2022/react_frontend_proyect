@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Login from './pages/Login/Login';
+import firebase from "firebase/app";
+import LoginSignup from './pages/Login';
 import Footer from './components/Footer/Footer';
 import Cookies from './pages/Cookies';
 import HelpCenter from './pages/HelpCenter';
@@ -9,6 +10,7 @@ import Privacy from './pages/Privacy';
 import Faq from './pages/Faq';
 import "bootstrap/dist/css/bootstrap.css";
 import Signup from './pages/Signup';
+import Login from './pages/Signup';
 import React from 'react';
 import "./App.css"
 import Navbar from './components/Navbar/Navbar';
@@ -25,13 +27,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div darkmode={`${darkMode}`} className="App"></div>
       <Navbar />
       <main className='container'>
         <Routes>
-          <Route path='*' element={<Login />} />
+          <Route path='*' element={<LoginSignup />} />
           <Route path='Billboards' element={<Billboards />} />
           <Route path='Heroes' element={<Heroes />} />
+          <Route path='Login' element={<LoginSignup />} />
           <Route path='Signup' element={<Signup />} />
           <Route path='FAQ' element={<Faq />} />
           <Route path='Cookies' element={<Cookies />} />
@@ -41,6 +43,7 @@ function App() {
           <Route path='Privacy' element={<Privacy />} />
           <Route path='*' element={<h2>404-Pagina no encontrada</h2>} />
         </Routes>
+        <div darkmode={`${darkMode}`} className="App"></div>
       </main>
       <Footer />
       <div />

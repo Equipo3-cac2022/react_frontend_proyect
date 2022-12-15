@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Header.css"
+import "./Navbar.css"
 import logo from "../../assets/images/notflix-logo-medium.png"
 import avatar from "../../assets/images/Netflix-avatar.png"
 import { Link } from 'react-router-dom'
@@ -20,10 +20,8 @@ const Navbar = () => {
           <li className='nav-item'><Link className="nav nav-link" to="Login">Login</Link></li>
           <li className='nav-item'><Link className="nav nav-link" to="Billboards">Billboards</Link></li>
           <li className='nav-item'><Link className="nav nav-link" to="Heroes">Heroes</Link></li>
+          <li className='nav-item' style={{ alignSelf: 'center' }}><DarkMode></DarkMode></li>
         </ul>
-        <br />
-        <DarkMode></DarkMode>
-        <br />
         <img src={avatar} alt="logo" className="avatar" />
       </div>
     </div>
