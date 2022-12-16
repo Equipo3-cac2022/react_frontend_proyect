@@ -20,6 +20,7 @@ const Login = () => {
     }
     const [isSignup, setIsSignup] = useState(false)
     const signinOrLoginToggler = () => {
+        setForm
         setIsSignup(current => !current)
     }
     return (
