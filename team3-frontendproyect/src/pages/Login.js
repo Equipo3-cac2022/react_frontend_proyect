@@ -12,82 +12,50 @@ const Login = () => {
     })
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        console.log('cositas', form.email, form.password)
+        console.log('email, pass', form.email, form.password, form)
         isSignup
-            ? await register(form.email, form.password)
-            : await login(form.email, form.password)
+            ? console.log('response', await register(form))
+            : console.log('response', await login(form))
   
     }
-    const [isSignup, setIsSignup] = useState(true)
+    const [isSignup, setIsSignup] = useState(false)
     const signinOrLoginToggler = () => {
         setIsSignup(current => !current)
     }
-    if (isSignup) {
-        return (
-            <div className="showcase">
-                <div className="showcase-content">
-                    <>
-                        <div className="form">
-                            <form>
-                                <h1>Signup</h1>
-                                <div className="info">
-                                    <input className="email" id="email" type="email" placeholder="Email or phone number"onChange={(e) => 
-            setForm({...form, email: e.target.value})} />
-                                    <br />
-                                    <input className="password" id="password" type="password" placeholder="Password" onChange={(e) => 
-            setForm({...form, password: e.target.value})} />
+    return (
+        <div className="showcase">
+            <div className="showcase-content">
+                <>
+                {form.email}
+                {form.password}
+                    <div className="form">
+                        <form onSubmit={handleSubmit}>
+                            <h1>{isSignup ? 'Signup' : 'Login'}</h1>
+                            <div className="info">
+                                <input className="email" id="email" type="email" placeholder="Email or phone number"onChange={(e) => 
+        setForm({...form, email: e.target.value})} />
+                                <br />
+                                <input className="password" id="password" type="password" placeholder="Password" onChange={(e) => 
+        setForm({...form, password: e.target.value})} />
+                            </div>
+                            <div className="formlogin">
+                                <button className="btn btn-primary" type="submit">{isSignup ? 'Signup' : 'Login'}</button>
+                            </div>
+                            <div className="remember">
+                                <div>
+                                    <input value="true" type="checkbox"></input><label>Remember me</label>
                                 </div>
-                                <div className="formlogin">
-                                    <button className="btn btn-primary" type="submit">Signup</button>
-                                </div>
-                                <div className="remember">
-                                    <div>
-                                        <input value="true" type="checkbox"></input><label>Remember me</label>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div className="signup">
-                            <p>Have an account?</p>
-                            <span className="toggler" onClick={signinOrLoginToggler}>Login</span>
-                        </div>
-                    </>
-                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="signup">
+                        <p>{isSignup ? 'Have an account?' : 'New to Notflix?'}</p>
+                        <span className="toggler" onClick={signinOrLoginToggler}>{isSignup ? 'Login' : 'Signup'}</span>
+                    </div>
+                </>
             </div>
-        )
-    } else {
-        return (
-            <div className="showcase">
-                <div className="showcase-content">
-                    <>
-                        <div className="form">
-                            <form>
-                                <h1>Login</h1>
-                                <div className="info">
-                                    <input className="email" type="email" placeholder="Email or phone number"></input>
-                                    <br />
-                                    <input className="email" type="password" placeholder="Password"></input>
-                                </div>
-                                <div className="formlogin">
-                                    <button className="btn btn-primary" type="submit">Login</button>
-                                </div>
-                                <div className="remember">
-                                    <div>
-                                        <input value="true" type="checkbox"></input><label>Remember me</label>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div className="signup">
-                            <p>New to Netflix?</p>
-                            <span className="toggler" onClick={signinOrLoginToggler}>Signup</span>
-                        </div>
-                    </>
-                </div>
-            </div>
-        )
-    }
-    
+        </div>
+    )    
 }
 
 
