@@ -20,7 +20,7 @@ const Login = () => {
     }
     const [isSignup, setIsSignup] = useState(false)
     const signinOrLoginToggler = () => {
-        setForm
+        // Hay que blanquear el formulario al cambiar entre login y signup
         setIsSignup(current => !current)
     }
     return (
